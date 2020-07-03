@@ -44,7 +44,7 @@ class TextAnalyzer(
     private val imageCropPercentages: MutableLiveData<Pair<Int, Int>>
 ) : ImageAnalysis.Analyzer {
 
-    // TODO: Instantiate TextRecognition detector
+    private val detector = TextRecognition.getClient()
 
     // TODO: Add lifecycle observer to properly close ML Kit detectors
 
