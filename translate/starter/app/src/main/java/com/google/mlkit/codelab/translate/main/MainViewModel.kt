@@ -40,7 +40,7 @@ import com.google.mlkit.codelab.translate.main.MainFragment.Companion.DESIRED_WI
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
-    // TODO Instantiate LanguageIdentification
+    private val languageIdentification = LanguageIdentification.getClient()
     val targetLang = MutableLiveData<Language>()
     val sourceText = SmoothedMutableLiveData<String>(SMOOTHING_DURATION)
 
