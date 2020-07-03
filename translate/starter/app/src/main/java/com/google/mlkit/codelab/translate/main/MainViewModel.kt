@@ -74,8 +74,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     val sourceLang = Transformations.switchMap(sourceText) { text ->
         val result = MutableLiveData<Language>()
-        // TODO  Call the language identification method and assigns the result if it is not
-        //  undefined (“und”)
+        languageIdentification.identifyLanguage(text)
+            .addOnSuccessListener {
+                if (it != "und")
+                    result.value = Language(it)
+            }
         result
     }
 
